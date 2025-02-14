@@ -12,8 +12,14 @@ const Question = ({
 }) => {
     const [answer, setAnswer] = useState({
         selectedAnswer: '',
-        answerState: null,
+        answerState: '',
     })
+
+    let timer = 20
+
+    if(answer.answerState) {
+        timer = 3
+    }
 
     const handleSelectAnswer = newAnswer => {
         if(answer.selectedAnswer) {
@@ -40,8 +46,10 @@ const Question = ({
     return (
         <div id='question'>
             <QuestionTimer
-                time={20}
+                key={timer}
+                time={timer}
                 onTimeout={onTimeout}
+                mode={answer.answerState && 'answered'}
             />
             <h2>{questionText}</h2>
             <Answers
