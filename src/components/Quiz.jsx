@@ -1,8 +1,8 @@
 import { useState, useCallback } from 'react'
 
 import questions from './../questions.js'
-import quizCompleteImg from './../assets/quiz-complete.png'
 import Question from './Question.jsx'
+import Summary from './Summary.jsx'
 
 const Quiz = () => {
 
@@ -20,10 +20,10 @@ const Quiz = () => {
 
     if(quizIsComplete) {
         return (
-            <div id='summary'>
-                <img src={quizCompleteImg} alt="Trophy Question" />
-                <h2>Quiz completed</h2>
-            </div>
+            <Summary
+                userAnswers={userAnswers}
+                questions={questions}
+            />
         )
     }
 

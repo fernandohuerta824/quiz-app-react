@@ -15,7 +15,7 @@ const Question = ({
         answerState: '',
     })
 
-    let timer = 20
+    let timer = 10
 
     if(answer.answerState) {
         timer = 3
